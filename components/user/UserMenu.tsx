@@ -2,40 +2,69 @@ import {MenuProps, Menu, Button, Col, Row, Layout} from "antd";
 import {FC, useState} from "react";
 
 import {
-    MailOutlined,
+    BankOutlined,
+    BarChartOutlined,
+    CheckSquareOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
+    RiseOutlined,
+    SketchOutlined,
+    TrophyOutlined,
     UserOutlined
 } from '@ant-design/icons';
-import { UserInfo } from "./UserInfo";
+import {UserInfo} from "./UserInfo";
+
+export enum userPages {
+    achivements = "achivements",
+    missions = "missions",
+    learning_centre = "learning_centre",
+    progress = "progress",
+    leaderboards = "leaderboards",
+    personal_performance = "personal_performance"
+}
 
 export const UserMenu: FC = () => {
     const [isCollapsed, setIsCollapsed] = useState(false)
     const items = [
         {
-            label: "a",
-            key: "1",
-            icon: <MailOutlined/>
+            label: "Osiągnięcia",
+            key: userPages.achivements,
+            icon: <SketchOutlined />
         },
         {
-            label: "UNO",
-            key: "3",
-            icon: <MailOutlined/>
+            label: "Misje",
+            key: userPages.missions,
+            icon: <CheckSquareOutlined />
         },
         {
-            label: "DOS",
-            key: "2",
-            icon: <MailOutlined/>
-        }
+            label: "Centrum nauki",
+            key: userPages.learning_centre,
+            icon: <BankOutlined />
+        },
+        {
+            label: "Progres",
+            key: userPages.progress,
+            icon: <RiseOutlined />
+        },
+        {
+            label: "Tablica wyników",
+            key: userPages.leaderboards,
+            icon: <TrophyOutlined />
+        },
+        {
+            label: "Statystyki",
+            key: userPages.personal_performance,
+            icon: <BarChartOutlined />
+        },
 
     ];
 
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
     };
-    return (<Layout style={{minHeight: '100vh', width: "50px"}}>
+    return (
         <Layout.Sider collapsible collapsed={isCollapsed}
-                      onCollapse={() => setIsCollapsed(!isCollapsed)} style={{background: "#fff"}}>
+                      onCollapse={() => setIsCollapsed(!isCollapsed)} width={"25vw"} theme="light">
             <UserInfo isCollapsed={isCollapsed}/>
             <Menu
                 onClick={onClick}
@@ -44,6 +73,5 @@ export const UserMenu: FC = () => {
                 mode="inline"
                 items={items}
             />
-        </Layout.Sider>
-    </Layout>)
+        </Layout.Sider>)
 }

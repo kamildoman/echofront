@@ -1,14 +1,14 @@
-import {Col, Row} from "antd";
+import {Col, Layout, Row} from "antd";
 import {FC} from "react";
 import { UserMenu } from "../../components/user/UserMenu";
 
 const User: FC = () => {
-    return (<Row>
+    return (<Layout style={{minHeight: "100vh"}}>
         <UserMenu/>
-        <Col md={15} style={{backgroundColor: "blue"}}>
+        <Row style={{backgroundColor: "blue", width: "100%"}}>
             bbb
-        </Col>
-    </Row>)
+        </Row>
+    </Layout>)
 }
 
 export default User;
