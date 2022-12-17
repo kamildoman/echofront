@@ -33,32 +33,32 @@ export const UserMenu: FC<Props> = ({isCollapsed, setIsCollapsed}) => {
         {
             label: "Osiągnięcia",
             key: userPages.achivements,
-            icon: <SketchOutlined />
+            icon: <SketchOutlined/>
         },
         {
             label: "Misje",
             key: userPages.missions,
-            icon: <CheckSquareOutlined />
+            icon: <CheckSquareOutlined/>
         },
         {
             label: "Centrum nauki",
             key: userPages.learning_centre,
-            icon: <BankOutlined />
+            icon: <BankOutlined/>
         },
         {
             label: "Progres",
             key: userPages.progress,
-            icon: <RiseOutlined />
+            icon: <RiseOutlined/>
         },
         {
             label: "Tablica wyników",
             key: userPages.leaderboards,
-            icon: <TrophyOutlined />
+            icon: <TrophyOutlined/>
         },
         {
             label: "Statystyki",
             key: userPages.personal_performance,
-            icon: <BarChartOutlined />
+            icon: <BarChartOutlined/>
         },
 
     ];
@@ -68,7 +68,14 @@ export const UserMenu: FC<Props> = ({isCollapsed, setIsCollapsed}) => {
     };
     return (
         <Layout.Sider collapsible collapsed={isCollapsed}
-                      onCollapse={() => setIsCollapsed(!isCollapsed)} theme="light" width="400" collapsedWidth="50">
+                      onCollapse={() => setIsCollapsed(!isCollapsed)} theme="light" width="400" collapsedWidth="50"
+                      style={{
+                          overflow: "auto",
+                          height: "100vh",
+                          position: "sticky",
+                          top: 0,
+                          left: 0
+                      }}>
             <UserInfo isCollapsed={isCollapsed}/>
             <Menu
                 onClick={onClick}

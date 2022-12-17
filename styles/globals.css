@@ -33,6 +33,31 @@
     width: 100%;
 }
 
+.wall-info-col {
+    justify-content: center;
+    width: 48%;
+    margin: 1%;
+}
+
+.single-post {
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.post-reactions {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: #e5e5e5 1px solid;
+
+}
+
 @media only screen and (max-width: 768px) {
     .not-collapsed-user-info {
         display: none;
