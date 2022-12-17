@@ -1,5 +1,5 @@
 import {MenuProps, Menu, Button, Col, Row, Layout} from "antd";
-import {FC, useState} from "react";
+import {FC} from "react";
 
 import {
     BankOutlined,
@@ -23,8 +23,12 @@ export enum userPages {
     personal_performance = "personal_performance"
 }
 
-export const UserMenu: FC = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false)
+interface Props {
+    isCollapsed: boolean;
+    setIsCollapsed: (arg0: boolean) => void;
+}
+
+export const UserMenu: FC<Props> = ({isCollapsed, setIsCollapsed}) => {
     const items = [
         {
             label: "Osiągnięcia",
@@ -64,7 +68,7 @@ export const UserMenu: FC = () => {
     };
     return (
         <Layout.Sider collapsible collapsed={isCollapsed}
-                      onCollapse={() => setIsCollapsed(!isCollapsed)} width={"25vw"} theme="light">
+                      onCollapse={() => setIsCollapsed(!isCollapsed)} theme="light" width="400" collapsedWidth="50">
             <UserInfo isCollapsed={isCollapsed}/>
             <Menu
                 onClick={onClick}

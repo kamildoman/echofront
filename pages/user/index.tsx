@@ -1,12 +1,14 @@
 import {Col, Layout, Row} from "antd";
-import {FC} from "react";
+import {FC, useState} from "react";
 import { UserMenu } from "../../components/user/UserMenu";
+import { UserProgress } from "../../components/user/UserProgress";
 
 const User: FC = () => {
+    const [isCollapsed, setIsCollapsed] = useState(false)
     return (<Layout style={{minHeight: "100vh"}}>
-        <UserMenu/>
-        <Row style={{backgroundColor: "blue", width: "100%"}}>
-            bbb
+        <UserMenu isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed}/>
+        <Row className={isCollapsed ? "user-info" : "not-collapsed-user-info"}>
+           <UserProgress />
         </Row>
     </Layout>)
 }
