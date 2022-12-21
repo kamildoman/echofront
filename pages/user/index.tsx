@@ -1,5 +1,7 @@
 import {Col, Layout, Row} from "antd";
 import {FC, useState} from "react";
+import { Leaderboard } from "../../components/user/Leaderboard";
+import { PersonalKPI } from "../../components/user/PersonalKPI";
 import { SinglePost } from "../../components/user/SinglePost";
 import { UserMenu } from "../../components/user/UserMenu";
 import { UserProgress } from "../../components/user/UserProgress";
@@ -136,7 +138,10 @@ const User: FC = () => {
                         <SinglePost post={post} key={key} setPosts={setPosts} posts={posts}/>
                     ))}
                </Col>
-                <Col className="wall-info-col" style={{backgroundColor: "green"}}>a</Col>
+                <Col className="wall-info-col">
+                    <PersonalKPI />
+                    <Leaderboard />
+                </Col>
             </Row>
         </Col>
     </Layout>)
