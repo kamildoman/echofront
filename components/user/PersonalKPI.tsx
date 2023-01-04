@@ -64,25 +64,6 @@ export const PersonalKPI: FC = () => {
         <Button onClick={() => setData(weeklyData)}>Tydzień</Button>
         <Button onClick={() => setData(monthlyData)}>Miesiąc</Button>
         </div>
-
-        <Row justify="center" style={{marginTop: "15px"}}>
-            <Typography.Text strong>Umyć naczynia:</Typography.Text>
-        </Row>
-        <Progress percent={60} strokeWidth={15}
-                  style={{width: "70%", marginBottom: "2px"}}
-        />
-        <Row justify="center" style={{marginTop: "15px"}}>
-            <Typography.Text strong>Wypić piwo:</Typography.Text>
-        </Row>
-        <Progress percent={90} strokeWidth={15}
-                  style={{width: "70%", marginBottom: "2px"}}
-        />
-        <Row justify="center" style={{marginTop: "15px"}}>
-            <Typography.Text strong>Wysrać się:</Typography.Text>
-        </Row>
-        <Progress percent={10} strokeWidth={15}
-                  style={{width: "70%", marginBottom: "2px"}}
-        />
     </div>)
 }
 

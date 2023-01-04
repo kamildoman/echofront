@@ -3,6 +3,7 @@ import {FC, useState} from "react";
 import { Leaderboard } from "../../components/user/Leaderboard";
 import { PersonalKPI } from "../../components/user/PersonalKPI";
 import { SinglePost } from "../../components/user/SinglePost";
+import { Tasks } from "../../components/user/Tasks";
 import { UserMenu } from "../../components/user/UserMenu";
 import { UserProgress } from "../../components/user/UserProgress";
 import { WritePost } from "../../components/user/WritePost";
@@ -140,6 +141,7 @@ const User: FC = () => {
                </Col>
                 <Col className="wall-info-col">
                     <PersonalKPI />
+                    <Tasks />
                     <Leaderboard />
                 </Col>
             </Row>
