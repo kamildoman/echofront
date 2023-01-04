@@ -26,8 +26,8 @@ export const SingleUserAchievements: FC = () => {
   return <Row className="center-div">
     <Typography.Title>Osiągnięcia</Typography.Title>
     <Row justify="space-between">
-      {getAchievements("achievement-big").map((achievement) => (
-        <Col xs={24} md={11} xl={7}>
+      {getAchievements("achievement-big").map((achievement, key) => (
+        <Col xs={24} md={11} xl={7} key={key}>
           <Card cover={achievement.icon} style={{height: "17rem", marginBottom: "1rem"}}>
             <Typography.Paragraph strong>{achievement.title}</Typography.Paragraph>
             <Typography.Text>{achievement.description}</Typography.Text>

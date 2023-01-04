@@ -23,8 +23,8 @@ const tasks = [
 export const Tasks: FC = () => {
   return (
     <div style={{ textAlign: "center" }}>
-      {tasks.map((task) => (
-        <Row className="center-div" style={{ cursor: "pointer" }}>
+      {tasks.map((task, key) => (
+        <Row className="center-div" style={{ cursor: "pointer" }} key={key}>
           <Row justify="center" style={{ marginTop: "15px" }}>
             <Typography.Text strong>{task.title}
               <Popover content={task.description} title={task.title} trigger="hover">

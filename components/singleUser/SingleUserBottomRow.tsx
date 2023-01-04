@@ -19,7 +19,7 @@ export const SingleUserBottomRow: FC = () => {
       </Col>
       <Col xs={24} md={12} xl={8}>
         <Card title="Nauka">
-          // TODO
+          TODO
         </Card>
       </Col>
     </Row>
