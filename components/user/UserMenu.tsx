@@ -5,63 +5,66 @@ import {
   BankOutlined,
   BarChartOutlined,
   CheckSquareOutlined,
+  LineChartOutlined,
   RiseOutlined,
   SketchOutlined,
   TrophyOutlined
 } from "@ant-design/icons";
 import { UserInfo } from "./UserInfo";
-
-export enum userPages {
-  achivements = "achivements",
-  missions = "missions",
-  learning_centre = "learning_centre",
-  progress = "progress",
-  leaderboards = "leaderboards",
-  personal_performance = "personal_performance"
-}
+import { UserPages } from "../../models/user";
+import { useRouter } from "next/router";
+import { routes } from "../../config/routes";
 
 interface Props {
   isCollapsed: boolean;
   setIsCollapsed: (arg0: boolean) => void;
+  setActivePage: (arg0: UserPages) => void;
 }
 
-export const UserMenu: FC<Props> = ({ isCollapsed, setIsCollapsed }) => {
+export const UserMenu: FC<Props> = ({ isCollapsed, setIsCollapsed, setActivePage }) => {
+  const router = useRouter();
   const items = [
     {
+      label: "Strona główna",
+      key: UserPages.main,
+      icon: <LineChartOutlined />
+    },
+    {
       label: "Osiągnięcia",
-      key: userPages.achivements,
+      key: UserPages.achivements,
       icon: <SketchOutlined />
     },
     {
       label: "Misje",
-      key: userPages.missions,
+      key: UserPages.missions,
       icon: <CheckSquareOutlined />
     },
     {
       label: "Centrum nauki",
-      key: userPages.learning_centre,
+      key: UserPages.learning_centre,
       icon: <BankOutlined />
     },
     {
       label: "Progres",
-      key: userPages.progress,
+      key: UserPages.progress,
       icon: <RiseOutlined />
     },
     {
       label: "Tablica wyników",
-      key: userPages.leaderboards,
+      key: UserPages.leaderboards,
       icon: <TrophyOutlined />
     },
     {
       label: "Statystyki",
-      key: userPages.personal_performance,
+      key: UserPages.personal_performance,
       icon: <BarChartOutlined />
     }
 
   ];
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
+    router.push(`/${routes.user}?page=${e.key}`);
+    setActivePage(e.key as UserPages);
   };
   return (
     <Layout.Sider collapsible collapsed={isCollapsed}
@@ -76,8 +79,6 @@ export const UserMenu: FC<Props> = ({ isCollapsed, setIsCollapsed }) => {
       <UserInfo isCollapsed={isCollapsed} />
       <Menu
         onClick={onClick}
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
         mode="inline"
         items={items}
       />
